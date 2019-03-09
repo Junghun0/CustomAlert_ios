@@ -1,6 +1,6 @@
 # CustomAlert_ios
 
-#### contentViewController 를 이용한 알림 커스텀
+#### contentViewController 를 이용한 Alert 커스텀
 
 ```swift
     override func viewDidLoad() {
@@ -141,4 +141,53 @@ let contentVC = MapKitViewController()
 ```
 
 - - -
+
+#### 이미지 추가 Alert 띄우기
+
+```swift
+class ImageViewController : UIViewController{
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //1.이미지와 이미지 뷰 객체를 생성
+        let icon = UIImage(named: "rating5")
+        let iconV = UIImageView(image: icon)
+        
+        //2. 이미지 뷰의 영역과 위치를 지정
+        iconV.frame = CGRect(x: 0, y: 0, width: (icon?.size.width)!, height: (icon?.size.height)!)
+        
+        //3. 루트 뷰에 이미지뷰를 추가
+        self.view.addSubview(iconV)
+        
+        //4. 외부에서 참조할 뷰 컨트롤러 사이즈를 이미지 크기와 동일하게 설정
+        self.preferredContentSize = CGSize(width: (icon?.size.width)!, height: (icon?.size.height)!+10)
+        
+    }
+}
+```
+* MapAlertViewController
+```swift
+    @objc func imageAlert(_ sender: Any){
+        let alert = UIAlertController(title: nil, message: "이번 글의 평점은 다음과 같습니다.", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        let contentVC = ImageViewController()
+        alert.setValue(contentVC, forKey: "contentViewController")
+        
+        self.present(alert, animated: false)
+    }
+```
+
+<div>
+    <img width="250" height="450" src="https://user-images.githubusercontent.com/30828236/54067352-558d0e00-4282-11e9-96fb-450d918156fa.png">
+</div>
+
+
+
 
