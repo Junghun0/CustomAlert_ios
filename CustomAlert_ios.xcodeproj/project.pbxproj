@@ -17,6 +17,8 @@
 		3485D5CB223393D100650B80 /* note.png in Resources */ = {isa = PBXBuildFile; fileRef = 3485D5C9223393D100650B80 /* note.png */; };
 		3485D5CC223393D100650B80 /* rating5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3485D5CA223393D100650B80 /* rating5@2x.png */; };
 		3485D5CE223393EE00650B80 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3485D5CD223393EE00650B80 /* ImageViewController.swift */; };
+		3485D5D02233995100650B80 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3485D5CF2233995100650B80 /* ControlViewController.swift */; };
+		3485D5D222339D6100650B80 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3485D5D122339D6100650B80 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		3485D5C9223393D100650B80 /* note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = note.png; sourceTree = "<group>"; };
 		3485D5CA223393D100650B80 /* rating5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rating5@2x.png"; sourceTree = "<group>"; };
 		3485D5CD223393EE00650B80 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		3485D5CF2233995100650B80 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
+		3485D5D122339D6100650B80 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 				3485D5C42233880500650B80 /* MapAlertViewController.swift */,
 				3485D5C622338FF600650B80 /* MapKitViewController.swift */,
 				3485D5CD223393EE00650B80 /* ImageViewController.swift */,
+				3485D5CF2233995100650B80 /* ControlViewController.swift */,
+				3485D5D122339D6100650B80 /* ListViewController.swift */,
 			);
 			path = CustomAlert_ios;
 			sourceTree = "<group>";
@@ -164,7 +170,9 @@
 				3485D5B322337FC000650B80 /* AppDelegate.swift in Sources */,
 				3485D5CE223393EE00650B80 /* ImageViewController.swift in Sources */,
 				3485D5C722338FF600650B80 /* MapKitViewController.swift in Sources */,
+				3485D5D02233995100650B80 /* ControlViewController.swift in Sources */,
 				3485D5C52233880500650B80 /* MapAlertViewController.swift in Sources */,
+				3485D5D222339D6100650B80 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
