@@ -241,7 +241,99 @@ class ControlViewController : UIViewController{
 </div>
 
 
+#### TableView 이용한 Alert 띄우기
 
+```swift
+class ListViewController : UITableViewController{
+    
+    var delegate: MapAlertViewController?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.preferredContentSize.height = 220
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel!.text = "\(indexPath.row) 번째 옵션"
+        cell.textLabel!.font = UIFont.systemFont(ofSize: 13)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.didSelectRowAt(indexPath: indexPath)
+    }
+}
+```
 
+* MapAlertViewController
+```swift
+    @objc func listAlert(_ sender: Any){
+        let contentVC = ListViewController()
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        alert.setValue(contentVC, forKey: "contentViewController")
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        //델리게이트 객체를 자신으로 지정
+        contentVC.delegate = self
+        
+        self.present(alert, animated: false)
+    }
+```
 
+* 델리게이트 패턴 사용
+  - MapAlertViewController 에 함수추가
+  
+  ```swift
+     func didSelectRowAt(indexPath: IndexPath){
+        print(">>>선택된 행은\(indexPath.row)")
+    }
+  ```
+  
+  - ListViewController 에 MapAlertViewController 타입의 변수 선언
+  
+  ```swift
+     var delegate: MapAlertViewController?
+  ```
+  - ListViewController 에 테이블 뷰의 델리게이트 메소드 오버라이드
+  
+  ```swift
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.didSelectRowAt(indexPath: indexPath)
+    }
+  ```
+  - MapAlertViewController 에 델리게이트 메소드 호출 등록
+  
+  ```swift
+    @objc func listAlert(_ sender: Any){
+        let contentVC = ListViewController()
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        
+        alert.setValue(contentVC, forKey: "contentViewController")
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        //델리게이트 객체를 자신으로 지정
+        contentVC.delegate = self
+        
+        self.present(alert, animated: false)
+    }
+  ```
+  
+  <div>
+    <img width="250" height="450" src="https://user-images.githubusercontent.com/30828236/54067869-dbac5300-4288-11e9-9f59-f0f1a491e61f.png">
+    
+    <img width="300" height="130" src="https://user-images.githubusercontent.com/30828236/54067903-19a97700-4289-11e9-80b8-20ae05a91879.png">
+</div>
 
